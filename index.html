@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>AXP-Tech | RDP/VPS Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg"></div>
+
+<header class="navbar">
+  <h1 class="logo glitch" data-text="AXP-Tech">AXP-Tech</h1>
+  <!-- ===== CEK IP BUTTON (NAVBAR TENGAH) ===== -->
+<!-- Tambahkan SATU BARIS ini di navbar kamu -->
+<button id="cekIpBtn" class="nav-link">DASHBOARD USER</button>
+
+<!-- ===== POPUP LOGIN / DAFTAR ===== -->
+<div id="terminalMain" class="terminal-popup">
+  <div class="terminal-box">
+    <div class="terminal-header">
+      <span>AXP-Tech</span>
+    </div>
+    <pre id="terminalMainText"></pre>
+  </div>
+</div>
+<!-- AUTH POPUP -->
+<div id="authPopup" class="auth-popup hidden">
+
+  <div class="auth-box">
+    <button class="close-auth" id="closeAuth">✕</button>
+
+    <h3 class="auth-title">CLIENT LOGIN</h3>
+
+    <input id="loginUser" type="text" placeholder="Username client">
+
+    <button id="btnLogin" class="auth-btn">MASUK</button>
+
+    <p class="auth-note">
+      *Masukkan username yang terdaftar<br>
+      Jika belum diverifikasi, hubungi AXP-Tech
+    </p>
+  </div>
+
+</div>
+  
+  <div class="cart-icon">🛒 <span id="cartCount">0</span></div>
+</header>
+
+<section class="hero">
+  <h2 class="glow">RDP / VPS Harian</h2>
+  <p>Perpanjang IP • Proses Cepat • Full Garansi</p>
+</section>
+
+<section class="card">
+<h3>Order VPS</h3>
+
+<div class="steps">
+  <div class="step active" id="stepSpec">SPEC</div>
+  <div class="step" id="stepOS">OS</div>
+  <div class="step" id="stepRegion">REGION</div>
+</div>
+
+<div class="select-box" id="specBox">
+  <h4>Specifications</h4>
+  <div class="grid" id="specGrid"></div>
+</div>
+
+<div class="select-box" id="osBox">
+  <h4>Operating System</h4>
+  <div class="tabs">
+    <button class="tab active" onclick="switchOS('windows',this)">Windows</button>
+    <button class="tab" onclick="switchOS('linux',this)">Linux</button>
+  </div>
+  <div class="grid" id="osGrid"></div>
+</div>
+
+<div class="select-box" id="regionBox">
+  <h4>Region Server</h4>
+  <div class="grid" id="regionGrid"></div>
+</div>
+
+<button id="addBtn" class="add disabled" disabled>ADD TO CART</button>
+</section>
+
+<section class="card rgb-cart">
+<h3>Cart</h3>
+<div id="cartItems"></div>
+<div class="total">Total: <span id="total">Rp0</span></div>
+<br><br>
+<div class="legal-links">
+  <span id="btnDisclaimer">Disclaimer Layanan</span>
+  <span>•</span>
+  <span id="btnTOS">TOS Penggunaan RDP/VPS</span>
+</div>
+</br></br>
+<br>
+<button id="waBtn" class="wa">ORDER NOW</button>
+</section>
+</br>
+<div id="legalTerminal" class="terminal-overlay hidden">
+  <div class="rgb-wrap">
+    <div class="terminal-box">
+      <div class="terminal-head">
+        <span id="legalTitle">AXP-Tech</span>
+        <span class="terminal-close" id="closeLegal">✕</span>
+      </div>
+      <pre id="legalContent"></pre>
+    </div>
+  </div>
+</div>
+
+<footer>© 2026 AXP-Tech</footer>
+
+<!-- WA TERMINAL -->
+<div id="waLoading" class="wa-loading hidden">
+  <div class="terminal">
+    <div class="line">[AXP] Initializing Core...</div>
+    <div class="line">[VPS] Allocating RAM & CPU</div>
+    <div class="line">[OS] Boot Sequence Running</div>
+    <div class="line">[NET] Secure Tunnel Established</div>
+    <div class="line ok">[OK] Redirecting WhatsApp</div>
+  </div>
+</div>
+
+<div id="toast" class="toast">Ditambahkan ✓</div>
+<div id="toastRemove" class="toast remove">Dihapus ✕</div>
+
+<script src="script.js"></script>
+</body>
+</html>
