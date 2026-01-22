@@ -1,0 +1,1363 @@
+*{
+  box-sizing:border-box;
+  font-family:'Share Tech Mono',monospace;
+}
+body{
+  margin:0;
+  background:#050510;
+  color:#e8faff;
+}
+
+/* BACKGROUND CYBER */
+.bg{
+  position:fixed;
+  inset:0;
+  background:
+    linear-gradient(120deg,#00eaff22,transparent),
+    linear-gradient(240deg,#ff00c822,transparent),
+    repeating-linear-gradient(90deg,#00eaff05 0 1px,transparent 1px 40px);
+  animation:cyberMove 15s linear infinite;
+  z-index:-1;
+}
+@keyframes cyberMove{
+  from{background-position:0 0}
+  to{background-position:400px 400px}
+}
+
+/* NAVBAR BENAR-BENAR TRANSPARAN */
+.navbar{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:999;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px 18px;
+
+  background-color:transparent !important;
+  background-image:none !important;
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+  border:none !important;
+  box-shadow:none !important;
+}
+./* LOGO AXP-TECH */
+.logo{
+  font-size:26px;        /* sebelumnya ±22px */
+  position:relative;
+  line-height:1.1;
+}
+
+/* GLITCH LOGO CYBER */
+.glitch{
+  position:relative;
+  color:#e8faff;
+  animation:glitch-skew 2.5s infinite linear alternate-reverse;
+}
+
+.glitch::before,
+.glitch::after{
+  content:attr(data-text);
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  overflow:hidden;
+  pointer-events:none;
+}
+
+/* layer merah */
+.glitch::before{
+  color:#ff00c8;
+  transform:translate(-2px,0);
+  clip-path:inset(0 0 0 0);
+  animation:glitch-red 2s infinite linear alternate-reverse;
+}
+
+/* layer biru */
+.glitch::after{
+  color:#00eaff;
+  transform:translate(2px,0);
+  clip-path:inset(0 0 0 0);
+  animation:glitch-blue 1.5s infinite linear alternate-reverse;
+}
+
+/* animasi glitch */
+@keyframes glitch-red{
+  0%{clip-path:inset(80% 0 0 0)}
+  20%{clip-path:inset(10% 0 85% 0)}
+  40%{clip-path:inset(50% 0 30% 0)}
+  60%{clip-path:inset(20% 0 60% 0)}
+  80%{clip-path:inset(70% 0 10% 0)}
+  100%{clip-path:inset(0 0 80% 0)}
+}
+
+@keyframes glitch-blue{
+  0%{clip-path:inset(0 0 80% 0)}
+  25%{clip-path:inset(60% 0 20% 0)}
+  50%{clip-path:inset(30% 0 40% 0)}
+  75%{clip-path:inset(85% 0 5% 0)}
+  100%{clip-path:inset(20% 0 60% 0)}
+}
+
+/* skew kecil biar cyber */
+@keyframes glitch-skew{
+  0%{transform:skew(0deg)}
+  50%{transform:skew(1deg)}
+  100%{transform:skew(-1deg)}
+}
+
+
+/* HERO */
+.hero{text-align:center;padding:20px}
+.glow{color:#00eaff;text-shadow:0 0 12px #00eaff}
+
+/* CARD */
+.card{
+  margin:16px;
+  padding:20px;
+  border-radius:18px;
+  background:rgba(10,15,30,.55);
+  backdrop-filter:blur(16px);
+  box-shadow:0 0 35px rgba(0,234,255,.15);
+}
+
+/* STEPS */
+.steps{display:flex;gap:10px;margin-bottom:20px}
+.step{
+  flex:1;
+  padding:10px;
+  text-align:center;
+  border-radius:14px;
+  background:#0f1328;
+  opacity:.5;
+}
+.step.active{opacity:1;box-shadow:0 0 12px #00eaff}
+.step.done{background:#00ffaa;color:#000}
+
+/* SELECT BOX */
+.select-box{
+  margin-bottom:22px;
+  padding:16px;
+  border-radius:16px;
+  background:rgba(255,255,255,.04);
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:14px;
+}
+
+/* CARD ITEM */
+.select-card{
+  min-height:90px;
+  padding:12px;
+  border-radius:14px;
+  background:rgba(255,255,255,.08);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  cursor:pointer;
+  transition:.25s;
+}
+.select-card:hover{transform:translateY(-4px);box-shadow:0 0 20px #ff00c8}
+.select-card.active{
+  background:linear-gradient(135deg,#00eaff,#ff00c8);
+  color:#000;
+}
+
+/* TABS */
+.tabs{display:flex;gap:10px;margin-bottom:14px}
+.tab{
+  flex:1;
+  padding:10px;
+  border:none;
+  border-radius:12px;
+  background:#10152f;
+  color:#fff;
+}
+.tab.active{background:linear-gradient(90deg,#00eaff,#ff00c8);color:#000}
+
+/* BUTTON */
+.add,.wa{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:14px;
+  font-size:15px;
+}
+.add{
+  background:#25D366; /* hijau WhatsApp */
+  color:#000;
+}
+.add{
+  letter-spacing:1px;
+  font-weight:bold;
+  box-shadow:
+    0 0 18px rgba(37,211,102,.6),
+    0 0 35px rgba(0,255,170,.35);
+}
+
+.add.disabled{
+  background:#1c7f46;
+  color:#000;
+}
+.wa{
+  background:#25D366;
+  font-weight:bold;
+  margin-top:12px;
+}
+
+/* CART */
+.cart-item{
+  background:#0b0f25;
+  padding:12px;
+  border-radius:14px;
+  margin-bottom:10px;
+}
+.cart-item button{
+  margin-top:8px;
+  background:#ff0055;
+  border:none;
+  padding:6px 10px;
+  border-radius:8px;
+  color:#fff;
+}
+
+/* TERMINAL */
+.wa-loading{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.9);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+.wa-loading.hidden{display:none}
+.terminal{
+  background:#000;
+  border:1px solid #00eaff;
+  padding:20px;
+  width:300px;
+  color:#00ffcc;
+  box-shadow:0 0 40px #00eaff;
+}
+.terminal .line{
+  opacity:0;
+  margin-bottom:6px;
+  animation:lineIn .6s forwards;
+}
+.terminal .line:nth-child(1){animation-delay:.4s}
+.terminal .line:nth-child(2){animation-delay:1.2s}
+.terminal .line:nth-child(3){animation-delay:2s}
+.terminal .line:nth-child(4){animation-delay:2.8s}
+.terminal .line:nth-child(5){animation-delay:3.8s}
+@keyframes lineIn{to{opacity:1}}
+.ok{color:#00ffaa}
+
+/* RGB BORDER UNTUK SPEC / OS / REGION */
+.select-card{
+  position:relative;
+  overflow:hidden;
+}
+
+/* RGB line */
+.select-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  padding:2px; /* tebal border */
+  border-radius:inherit;
+  background:linear-gradient(
+    90deg,
+    #ff004c,
+    #ffcc00,
+    #00ff88,
+    #00eaff,
+    #8f00ff,
+    #ff004c
+  );
+  background-size:300% 300%;
+  animation:rgbBorder 3s linear infinite;
+  opacity:0;
+  pointer-events:none;
+
+  /* potong bagian tengah (jadi cuma border) */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+          mask-composite:exclude;
+}
+
+/* aktif saat hover & dipilih */
+.select-card:hover::before,
+.select-card.active::before{
+  opacity:1;
+}
+
+/* animasi */
+@keyframes rgbBorder{
+  0%{background-position:0% 50%}
+  100%{background-position:300% 50%}
+}
+
+/* RGB BORDER MENU STEP */
+.step{
+  position:relative;
+  overflow:hidden;
+  z-index:0;
+}
+
+/* garis rgb */
+.step::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  padding:2px; /* tebal border */
+  border-radius:14px;
+  background:linear-gradient(
+    90deg,
+    #ff004c,
+    #ffcc00,
+    #00ff88,
+    #00eaff,
+    #8f00ff,
+    #ff004c
+  );
+  background-size:300% 300%;
+  animation:rgbStep 4s linear infinite;
+  opacity:.35;
+  pointer-events:none;
+
+  /* potong tengah (jadi cuma border) */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+          mask-composite:exclude;
+}
+
+/* aktif */
+.step.active::before{
+  opacity:1;
+}
+
+/* selesai */
+.step.done::before{
+  opacity:1;
+}
+
+/* animasi */
+@keyframes rgbStep{
+  0%{background-position:0% 50%}
+  100%{background-position:300% 50%}
+}
+
+/* RGB BORDER WRAPPER SELECT BOX */
+.select-box{
+  position:relative;
+  border-radius:16px;
+  padding:16px;
+  background:rgba(255,255,255,.04);
+  overflow:hidden;
+  z-index:0;
+}
+
+/* garis rgb luar */
+.select-box::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  padding:2px; /* tebal border */
+  border-radius:16px;
+  background:linear-gradient(
+    90deg,
+    #ff004c,
+    #ffcc00,
+    #00ff88,
+    #00eaff,
+    #8f00ff,
+    #ff004c
+  );
+  background-size:300% 300%;
+  animation:rgbBox 6s linear infinite;
+  pointer-events:none;
+
+  /* potong tengah (jadi border saja) */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+          mask-composite:exclude;
+}
+
+/* animasi */
+@keyframes rgbBox{
+  0%{background-position:0% 50%}
+  100%{background-position:300% 50%}
+}
+
+.select-box > *{
+  position:relative;
+  z-index:1;
+}
+
+.select-box{
+  box-shadow:
+    0 0 25px #00eaff33,
+    0 0 45px #ff00c822;
+}
+
+.tab{
+  position:relative;
+  overflow:hidden;
+  z-index:1;
+}
+
+/* border rgb tab */
+.tab::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  padding:2px;
+  border-radius:12px;
+  background:linear-gradient(
+    90deg,
+    #00eaff,
+    #ff00c8,
+    #00ff88,
+    #00eaff
+  );
+  background-size:300% 300%;
+  animation:rgbTab 3s linear infinite;
+  opacity:0;
+  pointer-events:none;
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+          mask-composite:exclude;
+}
+
+/* aktif & hover */
+.tab.active::before,
+.tab:hover::before{
+  opacity:1;
+}
+
+/* animasi */
+@keyframes rgbTab{
+  0%{background-position:0% 50%}
+  100%{background-position:300% 50%}
+}
+
+/* Judul menu di tengah kolom */
+.select-box h4{
+  text-align:center;
+  margin-bottom:16px;
+  letter-spacing:1px;
+}
+
+.select-box h4{
+  text-align:center;
+  margin-bottom:16px;
+  color:#00eaff;
+  text-shadow:0 0 8px #00eaff66;
+}
+
+.select-box h4{
+  text-align:center;
+  position:relative;
+  margin-bottom:20px;
+}
+
+.select-box h4::after{
+  content:"";
+  display:block;
+  width:60px;
+  height:2px;
+  margin:10px auto 0;
+  background:linear-gradient(90deg,#00eaff,#ff00c8);
+  border-radius:2px;
+}
+
+.select-box h4{
+  text-align:center;
+  font-size:18px;          /* lebih besar */
+  margin-top:-4px;         /* naik sedikit */
+  margin-bottom:18px;
+  letter-spacing:1.2px;
+  color:#00eaff;
+  text-shadow:0 0 8px #00eaff66;
+}
+
+/* NAVBAR FIXED (LOGO + CART) */
+.navbar{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:999;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px;
+  background:rgba(5,5,16,.85);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #00eaff33;
+}
+
+body{
+  padding-top:70px; /* tinggi navbar */
+}
+
+/* PERKECIL TOMBOL ADD TO CART */
+.add{
+  width:220px;          /* lebar tombol */
+  margin:0 auto;        /* posisi tengah */
+  display:block;
+  padding:12px 16px;
+  font-size:14px;
+}
+.add{
+  letter-spacing:1px;
+  font-weight:bold;
+}
+
+/* TOAST POPUP */
+.toast{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-40%);
+  padding:16px 28px;
+  border-radius:16px;
+
+  background:rgba(10,15,30,.95);
+  color:#00ffaa;
+  font-weight:bold;
+  letter-spacing:1px;
+  font-size:16px;
+
+  opacity:0;
+  pointer-events:none;
+  z-index:9999;
+
+  box-shadow:
+    0 0 18px #00ffaa,
+    0 0 40px rgba(0,255,170,.7);
+
+  transition:.35s ease;
+}
+
+/* SHOW */
+.toast.show{
+  opacity:1;
+  transform:translate(-50%,-50%) scale(1);
+}
+/* TOAST REMOVE (MERAH) */
+.toast.remove{
+  color:#ff5577;
+  box-shadow:
+    0 0 14px #ff5577,
+    0 0 35px rgba(255,85,119,.6);
+}
+
+/* ========================= */
+/* RGB BORDER UNTUK CART */
+/* ========================= */
+
+.rgb-cart{
+  position:relative;
+  overflow:hidden;
+  z-index:0;
+}
+
+/* garis rgb */
+.rgb-cart::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  padding:2px;               /* tebal border */
+  border-radius:18px;        /* sama dengan card */
+  background:linear-gradient(
+    90deg,
+    #ff004c,
+    #ffcc00,
+    #00ff88,
+    #00eaff,
+    #8f00ff,
+    #ff004c
+  );
+  background-size:300% 300%;
+  animation:rgbCart 5s linear infinite;
+  pointer-events:none;
+
+  /* potong bagian tengah (border only) */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+          mask-composite:exclude;
+}
+
+/* animasi */
+@keyframes rgbCart{
+  0%{background-position:0% 50%}
+  100%{background-position:300% 50%}
+}
+
+/* pastikan isi cart di atas border */
+.rgb-cart > *{
+  position:relative;
+  z-index:1;
+}
+
+/* glow lembut */
+.rgb-cart{
+  box-shadow:
+    0 0 25px #00eaff33,
+    0 0 50px #ff00c822;
+}
+
+/* =============================== */
+/* RGB BORDER UNTUK SETIAP CART ITEM */
+/* =============================== */
+
+.cart-item{
+  position:relative;
+  overflow:hidden;
+  z-index:0;
+}
+
+/* garis rgb */
+.cart-item::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  padding:2px;                 /* tebal border */
+  border-radius:14px;          /* sama dengan cart-item */
+  background:linear-gradient(
+    90deg,
+    #ff004c,
+    #ffcc00,
+    #00ff88,
+    #00eaff,
+    #8f00ff,
+    #ff004c
+  );
+  background-size:300% 300%;
+  animation:rgbCartItem 4s linear infinite;
+  opacity:.65;
+  pointer-events:none;
+
+  /* potong tengah → hanya border */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+          mask-composite:exclude;
+}
+
+/* hover lebih nyala */
+.cart-item:hover::before{
+  opacity:1;
+}
+
+/* animasi */
+@keyframes rgbCartItem{
+  0%{background-position:0% 50%}
+  100%{background-position:300% 50%}
+}
+
+/* isi cart di atas border */
+.cart-item > *{
+  position:relative;
+  z-index:1;
+}
+
+/* glow lembut */
+.cart-item{
+  box-shadow:
+    0 0 18px #00eaff33,
+    0 0 30px #ff00c822;
+}
+
+/* =============================== */
+/* RGB BORDER ADD TO CART BUTTON */
+/* =============================== */
+
+.add{
+  position:relative;
+  overflow:hidden;
+  z-index:0;
+}
+
+/* garis rgb */
+.add::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  padding:2px;               /* tebal border */
+  border-radius:14px;        /* sama dengan button */
+  background:linear-gradient(
+    90deg,
+    #ff004c,
+    #ffcc00,
+    #00ff88,
+    #00eaff,
+    #8f00ff,
+    #ff004c
+  );
+  background-size:300% 300%;
+  animation:rgbAddBtn 3s linear infinite;
+  opacity:1;
+  pointer-events:none;
+
+  /* potong tengah → border saja */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+          mask-composite:exclude;
+}
+
+/* animasi */
+@keyframes rgbAddBtn{
+  0%{background-position:0% 50%}
+  100%{background-position:300% 50%}
+}
+
+/* isi tombol di atas border */
+.add > *{
+  position:relative;
+  z-index:1;
+}
+
+/* saat disabled → redup */
+.add.disabled::before{
+  opacity:.25;
+  animation-play-state:paused;
+}
+
+/* hover → lebih nyala */
+.add:hover::before{
+  filter:brightness(1.3);
+}
+
+/* =============================== */
+/* WHATSAPP BUTTON = ADD TO CART STYLE */
+/* =============================== */
+
+.wa{
+  position:relative;
+  overflow:hidden;
+  z-index:0;
+
+  background:#25D366;   /* hijau WhatsApp */
+  color:#000;
+  font-weight:bold;
+  letter-spacing:1px;
+
+  box-shadow:
+    0 0 18px rgba(37,211,102,.6),
+    0 0 35px rgba(0,255,170,.35);
+}
+
+/* border rgb */
+.wa::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  padding:2px;
+  border-radius:14px;
+  background:linear-gradient(
+    90deg,
+    #ff004c,
+    #ffcc00,
+    #00ff88,
+    #00eaff,
+    #8f00ff,
+    #ff004c
+  );
+  background-size:300% 300%;
+  animation:rgbWaBtn 3s linear infinite;
+  pointer-events:none;
+
+  /* border only */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+          mask-composite:exclude;
+}
+
+/* animasi */
+@keyframes rgbWaBtn{
+  0%{background-position:0% 50%}
+  100%{background-position:300% 50%}
+}
+
+/* hover lebih nyala */
+.wa:hover::before{
+  filter:brightness(1.35);
+}
+
+/* klik feel */
+.wa:active{
+  transform:scale(.97);
+}
+
+.wa{
+  width:220px;
+  margin:12px auto 0;
+  display:block;
+  padding:12px 16px;
+  font-size:14px;
+}
+
+/* WA DISABLED */
+.wa.disabled{
+  opacity:.4;
+  pointer-events:none;
+}
+
+/* border rgb mati saat disabled */
+.wa.disabled::before{
+  animation-play-state:paused;
+  opacity:.3;
+}
+
+/* =============================== */
+/* WA BUTTON = ADD TO CART CLONE */
+/* =============================== */
+
+.wa{
+  width:220px;
+  margin:14px auto 0;
+  display:block;
+
+  padding:12px 16px;
+  border-radius:14px;
+  font-size:14px;
+
+  background:#25D366;
+  color:#000;
+  font-weight:bold;
+  letter-spacing:1px;
+
+  cursor:pointer;
+  transition:.15s ease;
+}
+
+.wa:active{
+  transform:scale(.96);
+}
+
+.wa::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  padding:2px;
+  border-radius:14px;
+  background:linear-gradient(
+    90deg,
+    #ff004c,
+    #ffcc00,
+    #00ff88,
+    #00eaff,
+    #8f00ff,
+    #ff004c
+  );
+  background-size:300% 300%;
+  animation:rgbWaBtn 3s linear infinite;
+  pointer-events:none;
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+          mask-composite:exclude;
+}
+
+.wa.disabled{
+  opacity:.35;
+  cursor:not-allowed;
+}
+
+.wa.disabled::before{
+  animation-play-state:paused;
+  opacity:.25;
+}
+
+.add,
+.wa{
+  font-size:14px;   /* samakan ukuran font */
+  letter-spacing:1px;
+  font-weight:bold;
+}
+
+/* =============================== */
+/* RGB LINE DI BAWAH TOTAL HARGA */
+/* =============================== */
+
+.total{
+  position:relative;
+  margin-top:14px;
+  padding-bottom:14px;
+  font-weight:bold;
+}
+
+/* garis rgb */
+.total::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:100%;
+  height:2px;   /* ketebalan garis */
+  background:linear-gradient(
+    90deg,
+    #ff004c,
+    #ffcc00,
+    #00ff88,
+    #00eaff,
+    #8f00ff,
+    #ff004c
+  );
+  background-size:300% 300%;
+  animation:rgbTotalLine 4s linear infinite;
+  border-radius:2px;
+}
+
+/* animasi */
+@keyframes rgbTotalLine{
+  0%{background-position:0% 50%}
+  100%{background-position:300% 50%}
+}
+
+/* =============================== */
+/* JUDUL CART (SAMA DENGAN SELECT BOX) */
+/* =============================== */
+
+.card h3{
+  text-align:center;
+  font-size:18px;           /* sama dengan h4 select-box */
+  margin-top:-4px;
+  margin-bottom:18px;
+  letter-spacing:1.2px;
+
+  color:#00eaff;
+  text-shadow:0 0 8px #00eaff66;
+  position:relative;
+}
+
+/* garis bawah */
+.card h3::after{
+  content:"";
+  display:block;
+  width:60px;
+  height:2px;
+  margin:10px auto 0;
+
+  background:linear-gradient(90deg,#00eaff,#ff00c8);
+  border-radius:2px;
+}
+
+
+/* ===== LOGIN MODULE ===== */
+.hidden{display:none!important}
+
+/* button navbar */
+.nav-link{
+  background:none;
+  border:none;
+  color:#00eaff;
+  font-size:14px;
+  letter-spacing:2px;
+  cursor:pointer;
+  position:relative;
+}
+.nav-link::after{
+  content:"";
+  display:block;
+  height:2px;
+  margin-top:6px;
+  background:linear-gradient(90deg,#00eaff,#ff00c8);
+}
+
+/* popup wrapper */
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.8);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+
+/* popup box */
+.popup-box{
+  width:320px;
+  padding:20px;
+  border-radius:18px;
+  background:#050510;
+  position:relative;
+}
+
+/* RGB border */
+.popup-box::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  padding:2px;
+  border-radius:18px;
+  background:linear-gradient(90deg,#00eaff,#ff00c8,#00ff88);
+  background-size:300% 300%;
+  animation:rgbBox 4s linear infinite;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+          mask-composite:exclude;
+}
+
+@keyframes rgbBox{
+  100%{background-position:300% 50%}
+}
+
+.popup-box *{position:relative;z-index:1}
+
+/* tabs */
+.tabs{display:flex;gap:10px;margin-bottom:14px}
+.tab{
+  flex:1;
+  padding:10px;
+  border:none;
+  border-radius:12px;
+  background:#10152f;
+  color:#fff;
+}
+.tab.active{
+  background:linear-gradient(90deg,#00eaff,#ff00c8);
+  color:#000;
+}
+
+/* input */
+.popup-box input{
+  width:100%;
+  padding:10px;
+  margin-bottom:10px;
+  border:none;
+  border-radius:10px;
+  background:#0b0f25;
+  color:#fff;
+}
+
+/* note */
+.note{
+  font-size:11px;
+  color:#aaa;
+  display:block;
+  margin-bottom:10px;
+}
+
+/* button */
+.btn{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:14px;
+  background:linear-gradient(90deg,#00eaff,#ff00c8);
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.close-auth{
+  position:absolute;
+  top:12px;
+  right:14px;
+  background:transparent;
+  border:none;
+  color:#00ffcc;
+  font-size:20px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.close-auth:hover{
+  color:#ff3c3c;
+  transform:rotate(90deg);
+}
+
+/* POPUP WRAPPER */
+.auth-popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+.auth-popup.hidden{display:none}
+
+/* BOX */
+.auth-box{
+  position:relative;
+  width:320px;
+  padding:26px 22px;
+  border-radius:18px;
+  background:rgba(10,15,30,.95);
+  box-shadow:0 0 35px #00eaff55;
+  text-align:center;
+}
+
+/* RGB BORDER */
+.auth-box::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  padding:2px;
+  border-radius:18px;
+  background:linear-gradient(
+    90deg,
+    #ff004c,
+    #ffcc00,
+    #00ff88,
+    #00eaff,
+    #8f00ff,
+    #ff004c
+  );
+  background-size:300% 300%;
+  animation:rgbAuth 4s linear infinite;
+  pointer-events:none;
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+          mask-composite:exclude;
+}
+
+@keyframes rgbAuth{
+  0%{background-position:0% 50%}
+  100%{background-position:300% 50%}
+}
+
+/* TITLE */
+.auth-title{
+  color:#00eaff;
+  margin-bottom:18px;
+  letter-spacing:1px;
+}
+
+/* INPUT */
+.auth-box input{
+  width:100%;
+  padding:12px;
+  border-radius:12px;
+  border:none;
+  outline:none;
+  background:#0f142e;
+  color:#00ffcc;
+  margin-bottom:16px;
+}
+
+/* BUTTON */
+.auth-btn{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  background:linear-gradient(90deg,#00eaff,#ff00c8);
+  color:#000;
+  font-weight:bold;
+  letter-spacing:1px;
+  cursor:pointer;
+}
+
+/* NOTE */
+.auth-note{
+  margin-top:14px;
+  font-size:12px;
+  color:#aaa;
+}
+
+/* CLOSE */
+.close-auth{
+  position:absolute;
+  top:10px;
+  right:12px;
+  background:none;
+  border:none;
+  font-size:20px;
+  color:#00ffcc;
+  cursor:pointer;
+}
+.close-auth:hover{color:#ff3c3c}
+
+.terminal-popup{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.terminal-box{
+  width: 90%;
+  max-width: 420px;
+  background: #050505;
+  border-radius: 14px;
+  padding: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* RGB FLOW – CLIENT PANEL STYLE */
+.terminal-box::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background: linear-gradient(
+    90deg,
+    #00f7ff,
+    #00ffd5,
+    #00f7ff
+  );
+  background-size: 200% 200%;
+  animation: rgbClient 3s linear infinite;
+  border-radius: 16px;
+  z-index:-1;
+}
+
+.terminal-box::after{
+  content:"";
+  position:absolute;
+  inset:2px;
+  background:#050505;
+  border-radius:12px;
+  z-index:-1;
+}
+
+@keyframes rgbClient{
+  0%{background-position:0% 50%}
+  100%{background-position:200% 50%}
+}
+
+#terminalMainText,
+#terminalText{
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+
+  color: #00f7ff;
+  text-shadow: 0 0 8px rgba(0,247,255,.45);
+}
+
+
+/* ===== LEGAL LINKS ===== */
+.legal-links{
+  margin-top:16px;
+  text-align:center;
+  font-size:13px;
+  color:#00eaff;
+}
+.legal-links span{
+  cursor:pointer;
+  margin:0 6px;
+  text-shadow:0 0 6px #00eaff88;
+}
+.legal-links span:hover{
+  color:#00ffaa;
+}
+
+/* ===== TERMINAL OVERLAY ===== */
+.terminal-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.9);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:99999;
+}
+.hidden{display:none}
+
+/* RGB WRAPPER */
+.rgb-wrap{
+  padding:2px;
+  border-radius:18px;
+  background:linear-gradient(
+    90deg,
+    #ff004c,
+    #ffcc00,
+    #00ff88,
+    #00eaff,
+    #8f00ff,
+    #ff004c
+  );
+  background-size:300% 300%;
+  animation:rgbBorder 5s linear infinite;
+}
+
+@keyframes rgbBorder{
+  0%{background-position:0% 50%}
+  100%{background-position:300% 50%}
+}
+
+/* TERMINAL BOX */
+.terminal-box{
+  width:340px;
+  max-height:75vh;
+  background:#000;
+  border-radius:16px;
+  padding:16px;
+  color:#00ffcc;
+  overflow:auto;
+  box-shadow:
+    0 0 25px #00eaff55,
+    0 0 40px #ff00c833;
+}
+
+/* HEADER */
+.terminal-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:10px;
+}
+#legalTitle{
+  font-weight:bold;
+  color:#00ffaa;
+  text-shadow:0 0 8px #00ffaa99;
+}
+.terminal-close{
+  cursor:pointer;
+  color:#ff5577;
+  font-size:18px;
+}
+
+/* TEXT */
+#legalContent{
+  white-space:pre-wrap;
+  font-size:13px;
+  line-height:1.6;
+  color:#00ffcc;
+  text-shadow:0 0 6px #00ffcc66;
+}
