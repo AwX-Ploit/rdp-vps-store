@@ -1,0 +1,206 @@
+*{
+  box-sizing:border-box;
+  font-family:'Share Tech Mono',monospace;
+}
+body{
+  margin:0;
+  color:#e8faff;
+  background:#050510;
+  padding-top:70px;
+}
+
+/* BG */
+.bg{
+  position:fixed;
+  inset:0;
+  background:
+    linear-gradient(120deg,#00eaff22,transparent),
+    linear-gradient(240deg,#ff00c822,transparent),
+    repeating-linear-gradient(90deg,#00eaff05 0 1px,transparent 1px 40px);
+  animation:move 15s linear infinite;
+  z-index:-1;
+}
+@keyframes move{
+  to{background-position:400px 400px}
+}
+
+/* NAV */
+.navbar{
+  position:fixed;
+  top:0;left:0;
+  width:100%;
+  padding:14px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(5,5,16,.85);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid #00eaff33;
+}
+
+.logo{font-size:22px}
+.client-name{color:#00ffcc}
+
+/* PANEL */
+.panel{
+  margin:18px;
+  padding:22px;
+  border-radius:18px;
+  background:rgba(10,15,30,.6);
+  backdrop-filter:blur(16px);
+  position:relative;
+}
+
+/* RGB BORDER */
+.panel::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  padding:2px;
+  border-radius:18px;
+  background:linear-gradient(
+    90deg,
+    #ff004c,
+    #ffcc00,
+    #00ff88,
+    #00eaff,
+    #8f00ff,
+    #ff004c
+  );
+  background-size:300% 300%;
+  animation:rgb 6s linear infinite;
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+          mask-composite:exclude;
+          
+}
+.panel > *{
+  position:relative;
+  z-index:1;
+}
+@keyframes rgb{
+  to{background-position:300% 50%}
+}
+
+.panel-title{
+  text-align:center;
+  color:#00eaff;
+  margin-bottom:20px;
+}
+
+/* INFO */
+.info-box{
+  display:grid;
+  gap:14px;
+}
+
+.info{
+  background:#0b0f25;
+  padding:12px;
+  border-radius:14px;
+  display:flex;
+  justify-content:space-between;
+}
+
+.info span{opacity:.7}
+.info b{color:#00ffcc}
+
+.active{color:#00ffaa}
+.expired{color:#ff4c4c}
+
+/* BUTTON */
+.extend-btn{
+  width:100%;
+  margin-top:22px;
+  padding:14px;
+  border:none;
+  border-radius:14px;
+  background:linear-gradient(90deg,#00eaff,#ff00c8);
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* WARNING 1 JAM */
+.warning{
+  color:#ffcc00;
+  text-shadow:0 0 8px #ffcc00;
+  animation:blink 1.2s infinite;
+}
+
+@keyframes blink{
+  0%,100%{opacity:1}
+  50%{opacity:.4}
+}
+
+.terminal-popup{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.terminal-box{
+  width: 90%;
+  max-width: 420px;
+  background: #050505;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  animation: rgbBorder 3s linear infinite;
+  padding: 15px;
+}
+
+.terminal-header{
+  font-weight: bold;
+  color: #0f0;
+  margin-bottom: 10px;
+}
+
+#terminalText{
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  color: #00ff99;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+@keyframes rgbBorder{
+  0%{border-color:#ff0055}
+  33%{border-color:#00f7ff}
+  66%{border-color:#9d00ff}
+  100%{border-color:#ff0055}
+}
+
+/* ===============================
+   CLIENT STATUS (ADMIN CONNECT)
+   =============================== */
+
+.info-box {
+  border: 2px solid;
+  border-image: linear-gradient(90deg,#0ff,#f0f,#0ff) 1;
+  background: rgba(5,10,20,.65);
+}
+
+.info {
+  border-bottom: 1px dashed rgba(0,255,255,.25);
+}
+
+#status.active { color:#00ff9c; }
+#status.pending { color:#ffae00; }
+#status.expired { color:#ff004c; }
+
+#countdown {
+  font-weight: bold;
+  color: #0ff;
+}
+
+.extend-btn {
+  border: 2px solid;
+  border-image: linear-gradient(90deg,#0ff,#f0f,#0ff) 1;
+  background: transparent;
+}

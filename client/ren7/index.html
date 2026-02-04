@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Client Panel | AXP-Tech</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg"></div>
+
+<header class="navbar">
+  <h1 class="logo glitch" data-text="AXP-Tech">AXP-Tech</h1>
+  <span class="client-name">CLIENT PANEL</span>
+</header>
+
+<section class="panel">
+
+  <h2 class="panel-title">STATUS RDP / VPS</h2>
+
+  <div class="info-box">
+    <div class="info">
+  <span>IP</span>
+  <b id="ipInfo">--</b>
+</div>
+    <div class="info">
+  <span>Spesifikasi</span>
+  <b id="specInfo">--</b>
+</div>
+
+<div class="info">
+  <span>OS</span>
+  <b id="osInfo">--</b>
+</div>
+
+<div class="info">
+  <span>Region</span>
+  <b id="regionInfo">--</b>
+</div>
+    <div class="info">
+      <span>Username</span>
+      <b id="userName">username</b>
+    </div>
+
+    <div class="info">
+      <span>Status</span>
+      <b id="status" class="active">AKTIF</b>
+    </div>
+
+    <div class="info">
+      <span>Sisa Durasi</span>
+      <b id="countdown">--</b>
+    </div>
+
+    <div class="info">
+      <span>Tanggal Pembelian</span>
+      <b id="buyDate">--</b>
+    </div>
+
+    <div class="info">
+      <span>Berlaku Sampai</span>
+      <b id="expireDate">--</b>
+    </div>
+  </div>
+
+  <button id="extendBtn" class="extend-btn">
+    PERPANJANG RDP / VPS
+  </button>
+
+</section>
+
+<footer>© 2026 AXP-Tech</footer>
+<div id="terminalExtend" class="terminal-popup">
+  <div class="terminal-box">
+    <div class="terminal-header">
+      <span>AXP-Tech</span>
+    </div>
+    <pre id="terminalText"></pre>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
