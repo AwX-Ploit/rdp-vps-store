@@ -265,7 +265,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
         setTimeout(()=>{
           terminalMain.style.display = "none";
-          window.location.href = "/client/" + username + "/";
+          window.location.href = "/rdp-vps-store/client/" + username + "/index.html";
         }, 1200);
       }
     }, 450);
